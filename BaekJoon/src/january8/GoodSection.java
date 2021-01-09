@@ -4,14 +4,7 @@ import java.util.*;
 public class GoodSection {
 
 	public static void main(String[] args) {
-		// 입력
-		// 1. 집합의 크기 L
-		// 2. 집합의 원소
-		// 3. n
-		// 출력 : n을 포함하는 좋은 구간의 개수
-		// 좋은 구간이란 : 구간[A, B], A,B는 양의 정수, A < B, 집합 S에 포함된 정수는 구간에 속하지 않음
 
-		// 입력
 		Scanner sc = new Scanner(System.in);
 		int [] set = new int[sc.nextInt()];
 		
@@ -22,9 +15,7 @@ public class GoodSection {
 		
 		Arrays.sort(set);
 		
-		// n이 집합의 어느 두 정수 사이에 속하는 수인지 구하기 
-		// ex) 집합의 원소가 1, 4, 6, 12, 13이고 n = 7이라면 n은 6과 12 사이에 속한다. a = 6, b = 12 저장
-		int count = 0, a = 0, b = 0;
+		int a = 0, b = 0;
 		for(int i=0; i < set.length; i++) {
 			if(n == set[i]) {
 				System.out.println("0");
@@ -42,13 +33,14 @@ public class GoodSection {
 				}
 			}
 		}
-		System.out.println("a : "+a+", b : "+b);
-		// a = 6, b = 12; n = 7 이라면
-		// i가 7이라면 구간의 개수는 12-7-1게 because [7,8],[7,9][7,10][7,11] 
+
+		int count = 0;
 		for(int i = a+1; i <= n; i++) {
-			count += b-i-1;
+			for(int j = n; j < b; j++) {
+				count++;
+			}
 		}
+		count--;
 		System.out.println(count);
-		
 	} 
 }
