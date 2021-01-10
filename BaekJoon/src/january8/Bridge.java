@@ -4,9 +4,9 @@ public class Bridge {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int testcaset = sc.nextInt(), n, m;
+		int testcase = sc.nextInt(), n, m;
 		double bridge, div, temp;
-		for(int i=0; i<testcaset; i++) {
+		for(int i=0; i<testcase; i++) {
 			n = sc.nextInt(); // 서쪽
 			m = sc.nextInt(); // 동쪽
 			if(n > m-n)

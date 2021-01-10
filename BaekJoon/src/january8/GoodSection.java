@@ -4,14 +4,15 @@ import java.util.*;
 public class GoodSection {
 
 	public static void main(String[] args) {
-
+		int [] set;
+		int n;
 		Scanner sc = new Scanner(System.in);
-		int [] set = new int[sc.nextInt()];
+		set = new int[sc.nextInt()];
 		
 		for(int i=0; i < set.length; i++) {
 			set[i] = sc.nextInt();
 		}
-		int n = sc.nextInt();
+		n = sc.nextInt();
 		
 		Arrays.sort(set);
 		
