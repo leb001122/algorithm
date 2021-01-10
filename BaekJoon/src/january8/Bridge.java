@@ -9,6 +9,8 @@ public class Bridge {
 		for(int i=0; i<testcaset; i++) {
 			n = sc.nextInt(); // 서쪽
 			m = sc.nextInt(); // 동쪽
+			if(n > m-n)
+				n = m-n;
 			bridge = 1; 
 			div = 1;
 			temp = n;

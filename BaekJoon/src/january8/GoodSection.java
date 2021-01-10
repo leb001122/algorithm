@@ -34,13 +34,14 @@ public class GoodSection {
 			}
 		}
 
-		int count = 0;
+		int count = 0, temp = n;
 		for(int i = a+1; i <= n; i++) {
-			for(int j = n; j < b; j++) {
+			if(i == temp) temp++;
+			for(int j = temp; j < b; j++) {
 				count++;
+//				System.out.println("["+ i +","+ j +"]");
 			}
 		}
-		count--;
 		System.out.println(count);
 	} 
 }
