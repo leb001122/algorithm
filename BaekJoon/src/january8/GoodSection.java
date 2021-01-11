@@ -1,48 +1,56 @@
 package january8;
 
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 public class GoodSection {
+	static int [] arr;
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    
+	static int getIdx(int target) {
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i] == target)
+				return -1;
+			else if (arr[i] > target) // arr[0]이 target보다 큰 경우 index i 반환
+				return i;
+		}
+		return -1;
+	}
+	
+	public static void main(String[] args) throws Exception {
+		
+		int size = Integer.parseInt(br.readLine());
+		arr = new int[size];
+		String[] input = br.readLine().split(" ");
+		for(int i=0; i < arr.length; i++) {
+			arr[i] = Integer.parseInt(input[i]);
+		}
+		int n = Integer.parseInt(br.readLine());
+		
+		Arrays.sort(arr);
+		
+		int bIdx = getIdx(n); 
+		int aIdx = bIdx - 1;
+	
+		if(bIdx == -1){
+			System.out.println(0);
+		}
+		else if(bIdx > 0) {
+			System.out.println((n-arr[aIdx])*(arr[bIdx]-n)-1);
+		}else {
+			System.out.println((n-1)*(arr[bIdx]-n)+(arr[bIdx]-n-1));
+		}
+		
 
-	public static void main(String[] args) {
-		int [] set;
-		int n;
-		Scanner sc = new Scanner(System.in);
-		set = new int[sc.nextInt()];
-		
-		for(int i=0; i < set.length; i++) {
-			set[i] = sc.nextInt();
-		}
-		n = sc.nextInt();
-		
-		Arrays.sort(set);
-		
-		int a = 0, b = 0;
-		for(int i=0; i < set.length; i++) {
-			if(n == set[i]) {
-				System.out.println("0");
-				return;
-			}
-			else {
-				if(set[i] < n) {
-					if(n < set[i+1]) {
-						a = set[i];
-						b = set[i+1];
-						break;
-					}
-					else
-						continue;
-				}
-			}
-		}
-
-		int count = 0, temp = n;
-		for(int i = a+1; i <= n; i++) {
-			if(i == temp) temp++;
-			for(int j = temp; j < b; j++) {
-				count++;
-//				System.out.println("["+ i +","+ j +"]");
-			}
-		}
-		System.out.println(count);
 	} 
 }
+
+
+
+
+
+
+
+
+
+
