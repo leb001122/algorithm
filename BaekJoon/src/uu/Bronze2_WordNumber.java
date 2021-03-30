@@ -1,8 +1,6 @@
 package uu;
 
 import java.io.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Bronze2_WordNumber {
 
